@@ -24,18 +24,18 @@ int main() {
     ifstream inFile;
     inFile.open("test.txt");
 
-    //BST_312<string> bst;
-    BST_312<int> bst;
+    BST_312<string> bst;
+    //BST_312<int> bst;
 
-    //string s;
-    int s;
+    string s;
+    //int s;
     inFile >> s;
     while (inFile) {;
         cout << "inserting ... " << s << endl;
         bst.insertItem(s);
         inFile >> s;
     }
-
+                                          //IS SEARCHING OR SORTING SAME AS ONE OF THESE TRAVERSALS?
     cout << "postorder traversal is " << endl;
     print(bst.postOrderTraversal());
     cout << endl;
@@ -51,12 +51,43 @@ int main() {
     cout << "Remove items " << endl;
     cout << "number of nodes in tree before delete is " << bst.countNodes() << endl;
     //s = "tree";
-    s = 4;
+    s = "jumps";
     bst.deleteItem(s);
+    string j = "jordon";
+    bst.deleteItem(j);
     print(bst.postOrderTraversal());
     cout << endl;
     cout << "number of nodes in tree after delete is " << bst.countNodes() << endl;
     cout << endl;
+
+    string a = "hello";
+    bst.insertItem(a);
+    cout << "inorder traversal after inserting item" << endl;
+    print(bst.inOrderTraversal());
+
+    cout << "is item in tree?" << endl;
+    bool item1 = bst.isItemInTree("fox");
+    cout << item1 << endl;   //should be true
+    bool item2 = bst.isItemInTree("fox");
+    cout << item2 << endl;   //should be true
+   bool item3 = bst.isItemInTree("michelle");
+   cout << item3 << endl;   //should be false
+
+    cout << "making empty..." << endl;
+    bst.makeEmpty();
+    print(bst.inOrderTraversal());
+    cout << "empty now" << endl;
+
+    cout << "traversing when empty..." << endl;
+    print(bst.preOrderTraversal());
+    cout << "is it empty?" << endl;
+    cout << bst.isEmpty() << endl;
+
+    cout << "deleting item" << endl;
+   bst.deleteItem(a);
+   print(bst.inOrderTraversal());
+
+   cout << bst.countNodes() << endl;
 
 }
 

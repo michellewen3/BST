@@ -1,10 +1,7 @@
-
 /*  BST312.h
   CS 312 Fall 2018
 
   a simple implementation of a binary search tree
-
-
 */
 
 #ifndef BST_312_H
@@ -128,7 +125,6 @@ private:
 
     TreeNode * root;
 
-
     void insertItem(TreeNode*& t, const ItemType& newItem);
     void inOrderTraversal(TreeNode* t,vector<ItemType>& result) const;
     int countNodes(TreeNode* t) const;
@@ -239,7 +235,6 @@ template<class ItemType>
 void BST_312 <ItemType>::deleteItem(const ItemType& newItem)
 {
     deleteItem(root, newItem);
-
 }
 
 template<class ItemType>
@@ -290,7 +285,7 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem)
 {
     //YOUR CODE GOES HERE
     if(t == NULL){
-       t = new TreeNode;
+       t = new TreeNode;         //making new treenode
        t->data = newItem;
        t->left = NULL;
        t->right = NULL;
@@ -309,6 +304,7 @@ void BST_312 <ItemType>::insertItem(const ItemType& newItem)
 {
     //YOUR CODE GOES HERE
     if(isFull()){
+       cout << "BST is full." << endl;
        return;
     }
     else {
@@ -321,12 +317,13 @@ template<class ItemType>
 int BST_312 <ItemType>::countNodes(TreeNode* t) const
 {
     //YOUR CODE GOES HERE
-   int count = 1;
+   int count = 0;
    if(t == NULL){
-      return count;
+      return 0;
    }
    count = count + countNodes(t->left);
    count = count + countNodes(t->right);
+   count++;                //incrementing count
    return count;
 }
 
