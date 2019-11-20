@@ -241,12 +241,15 @@ template<class ItemType>
 void BST_312 <ItemType>::makeEmpty(TreeNode*& t)
 {
     //YOUR CODE GOES HERE
-    if (t == NULL){
+    /*if (t == NULL){
        return;
     }
     makeEmpty(t->left);
     makeEmpty(t->right);
-    delete t;
+    delete t;*/
+    while(root != NULL){
+       deleteNode(root);
+    }
 }
 
 template<class ItemType>
@@ -297,6 +300,7 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem)
     else if(newItem > t->data){
        insertItem(t->right, newItem);
     }
+
 }
 
 template<class ItemType>
@@ -408,17 +412,20 @@ template<class ItemType>
 bool BST_312 <ItemType>::isItemInTree(const ItemType& item)
 {
    //YOUR CODE GOES HERE
+   TreeNode *temp;
+   temp = root;
+
    if(isEmpty()){
       return false;
    }
    else {
-      while (root != NULL) {
-         if (item == root->data) {
+      while (temp != NULL) {
+         if (item == temp->data) {
             return true;
-         } else if (item < root->data) {
-            root = root->left;
-         } else if (item > root->data) {
-            root = root->right;
+         } else if (item < temp->data) {
+            temp = temp->left;
+         } else if (item > temp->data) {
+            temp = temp->right;
          }
       }
    }

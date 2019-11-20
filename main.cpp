@@ -52,8 +52,10 @@ int main() {
     cout << "number of nodes in tree before delete is " << bst.countNodes() << endl;
     //s = "tree";
     s = "jumps";
+    //s = 9;
     bst.deleteItem(s);
     string j = "jordon";
+    //int j = 0;
     bst.deleteItem(j);
     print(bst.postOrderTraversal());
     cout << endl;
@@ -61,16 +63,17 @@ int main() {
     cout << endl;
 
     string a = "hello";
+    //int a = 10;
     bst.insertItem(a);
     cout << "inorder traversal after inserting item" << endl;
     print(bst.inOrderTraversal());
 
     cout << "is item in tree?" << endl;
-    bool item1 = bst.isItemInTree("fox");
+    bool item1 = bst.isItemInTree("dog");
     cout << item1 << endl;   //should be true
-    bool item2 = bst.isItemInTree("fox");
+    bool item2 = bst.isItemInTree("dog");
     cout << item2 << endl;   //should be true
-   bool item3 = bst.isItemInTree("michelle");
+   bool item3 = bst.isItemInTree("weird");
    cout << item3 << endl;   //should be false
 
     cout << "making empty..." << endl;
@@ -88,6 +91,7 @@ int main() {
    print(bst.inOrderTraversal());
 
    cout << bst.countNodes() << endl;
+
 
 }
 
